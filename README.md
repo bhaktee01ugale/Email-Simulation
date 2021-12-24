@@ -22,11 +22,11 @@ Email simulation using python libraries such as smtplib for sending email and tk
 
 - Technologies Selected and Technology features covered:
  - tkinter
-  - Frame
-  - Label
-  - Button 
+   - Frame
+   - Label
+   - Button 
  - PIL
-  -Image
+   -Image
  - smtplib
       
 
