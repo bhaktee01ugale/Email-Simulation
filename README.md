@@ -26,7 +26,7 @@ Email simulation using python libraries such as smtplib for sending email and tk
     - Label
     - Button 
   - PIL
-    -Image
+    - Image
   - smtplib
       
 
