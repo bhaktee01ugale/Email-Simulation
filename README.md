@@ -7,11 +7,10 @@ Classes created:
  - login_winodw : for logging into gmail account
 
 Group members:
-Roll no. |      C no.   |  Name
-  2456   | C22020221457 | Jessica Tapar
-  2461   | C22020221461 | Bhaktee Ugale
-  2471   | C22020221472 | Snehal Wanekar
-  2472   | C22020221473 | Yashvi Bhutada
+- 2456   | C22020221457 | Jessica Tapar
+- 2461   | C22020221461 | Bhaktee Ugale
+- 2471   | C22020221472 | Snehal Wanekar
+- 2472   | C22020221473 | Yashvi Bhutada
   
 Problem Statement: Email simulation using python libraries such as smtplib for sending email and tkinter for GUI.
 
