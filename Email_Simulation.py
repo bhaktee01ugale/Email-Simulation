@@ -54,34 +54,6 @@ class App(tk.Tk):
 
         self.iconphoto(False, icon)
 
-        #self.play_gif()
-
-
-    '''def play_gif(self):
-
-        file = 'mail-download.gif'
-        info = Image.open(file)
-        frames = info.n_frames
-
-        im = [PhotoImage(file=file, format=f'gif -index {i}') for i in range(frames)]
-
-        count = 0
-
-        def animation(count):
-            im2 = im[count]
-            count += 1
-            if count == frames:
-                self.gif_label.destroy()
-                return
-            self.gif_label.configure(image=im2)
-            self.after(50, animation, count)
-
-        self.gif_label = ttk.Label(self)
-        self.gif_label.pack()
-
-        self.after(0, animation, 0)'''
-
-
 
 if __name__ == '__main__':
     app = App()
