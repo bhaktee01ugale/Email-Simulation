@@ -32,6 +32,6 @@ Email simulation using python libraries such as smtplib for sending email and tk
 
 
 - References:
- - https://docs.python.org/3/library/tkinter.html
- - https://www.pythontutorial.net/tkinter/
- - https://www.freecodecamp.org/news/send-emails-using-code-4fcea9df63f/
+  - https://docs.python.org/3/library/tkinter.html
+  - https://www.pythontutorial.net/tkinter/
+  - https://www.freecodecamp.org/news/send-emails-using-code-4fcea9df63f/
