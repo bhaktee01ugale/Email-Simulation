@@ -2,9 +2,9 @@
 Email simulation using python libraries such as smtplib for sending email and tkinter for GUI.
 
 - Classes created:
- - App : for root window
- - Start_window : for playing starting GIF
- - login_winodw : for logging into gmail account
+  - App : for root window
+  - Start_window : for playing starting GIF
+  - login_winodw : for logging into gmail account
 
 - Group members :
   - 2456 | C22020221457 | Jessica Tapar
