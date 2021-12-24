@@ -21,13 +21,13 @@ Email simulation using python libraries such as smtplib for sending email and tk
 - Module-wise Description :
 
 - Technologies Selected and Technology features covered:
- - tkinter
-   - Frame
-   - Label
-   - Button 
- - PIL
-   -Image
- - smtplib
+  - tkinter
+    - Frame
+    - Label
+    - Button 
+  - PIL
+    -Image
+  - smtplib
       
 
 
