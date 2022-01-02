@@ -3,7 +3,42 @@ from tkinter import PhotoImage
 from tkinter import ttk
 from PIL import Image
 
+# yashvi
+class menu_window(ttk.Frame):
+    def __init__(self, container):
+        super().__init__(container)
 
+        self.pack()
+
+# yashvi, snehal # same as display draft
+class compose_window(ttk.Frame):
+    def __init__(self, container):
+        super().__init__(container)
+
+        self.pack()
+
+# jessica
+class display_sent_window(ttk.Frame):
+    def __init__(self, container):
+        super().__init__(container)
+
+        self.pack()
+
+# bhaktee # same as sent window
+class drafts_window(ttk.Frame):
+    def __init__(self, container):
+        super().__init__(container)
+
+        self.pack()
+
+#bhaktee
+class sent_winodw(ttk.Frame):
+    def __init__(self, container):
+        super().__init__(container)
+
+        self.pack()
+
+# jessica
 class login_Window(ttk.Frame):
     def __int__(self, container):
         super().__init__(container)
@@ -16,6 +51,7 @@ class login_Window(ttk.Frame):
 
         self.pack()
 
+# bhaktee
 class Start_Window(ttk.Frame):
     def __init__(self, container):
         super().__init__(container)
@@ -53,6 +89,8 @@ class App(tk.Tk):
         self.title("Mail")
 
         self.iconphoto(False, icon)
+
+
 
 
 if __name__ == '__main__':
