@@ -2,10 +2,12 @@ import tkinter as tk
 from tkinter import PhotoImage
 from tkinter import ttk
 from PIL import Image
+from tkinter.ttk import Style
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from tkinter import messagebox
+
 
 # yashvi
 class menu_window(ttk.Frame):
@@ -14,28 +16,39 @@ class menu_window(ttk.Frame):
 
         def create(self):
             compose_window(container).grid(row=0,column=0)
-            compose_window.tkraise(container)
+            self.destroy()
 
-        self.create = ttk.Button(self, text="Compose", command=lambda:create(self), cursor='hand2').place(anchor='center')
+
+        self.l = ttk.Label(self, width=30).grid(row=0, column=0)
+        self.create = ttk.Button(self, text='Compose', command=lambda: create(self), cursor='hand2').grid(row=1, column=1)
+        self.rowconfigure(0, weight=3)
+        self.columnconfigure(0, weight=3)
 
 # yashvi, snehal # same as display draft
 class compose_window(ttk.Frame):
-
-
     def __init__(self, container):
         super().__init__(container)
         container.geometry('500x520')
 
         def send(self):
             try:
+                global receiver_email
+                receiver_email = receiver_email + self.to.get()
+                print("Recipient:",receiver_email)
+                global subject
+                subject = subject + self.sub.get()
+                print("Subject line:",subject)
+                global body
+                body = body + self.body.get("1.0", 'end-1c')
+                print(body)
                 global smtp
                 msg = MIMEMultipart()
                 msg['From'] = sender_email
                 msg['To'] = receiver_email
-                msg['Subject'] = self.subject.get(0, "end")
-                msg.attach(MIMEText(self.body, 'plain'))
+                msg['Subject'] = subject
+                msg.attach(MIMEText(body))
 
-                smtp.sendmail(sender_email, receiver_email, msg)
+                smtp.send_message(msg)
 
                 smtp.quit()
 
@@ -46,11 +59,18 @@ class compose_window(ttk.Frame):
                 print('Something went wrong!', ex)
 
         self.t_l = ttk.Label(self, text="To").grid(row=0, column=0)
-        self.to = ttk.Entry(self).grid(row=0, column=1)
+        self.to = ttk.Entry(self, width=10)
+        self.to.grid(row=0, column=1)
+        self.to.get()
         self.s_l = ttk.Label(self, text="Subject").grid(row=1, column=0)
-        self.subject = ttk.Entry(self).grid(row=1, column=1)
+        self.sub = ttk.Entry(self)
+        self.sub.grid(row=1, column=1)
+        self.sub.get()
 
-        self.body = tk.Text(self, width=50).grid(row=2, columnspan=2)
+        self.body = tk.Text(self, width=50)
+        self.body.grid(row=2, columnspan=2)
+        self.body.get("1.0", 'end-1c')
+
         self.send_button = ttk.Button(self, text="Send", cursor='hand2',command=lambda: send(self)).grid(row=3, column=1)
 
 
@@ -120,25 +140,39 @@ class login_Window(ttk.Frame):
                 menu_window(container).grid(row=0, column=0)
                 self.destroy()
             except Exception as ex:
-                messagebox.showerror("Error", "Login unsuccessful!")
+                messagebox.showerror("Error", "Wrong Credentials!")
                 print('Something went wrong!', ex)
-        self.input_username = ttk.Entry(self, width=40)
+
+        container.geometry('565x378')
+        self.input_username = ttk.Entry(self, width=35)
         self.input_username.grid(row=1, column=1)
         self.input_username.insert(0, "Username")
         self.input_username.bind("<FocusIn>", self.temp_text_user)
         self.input_username.bind("<FocusOut>", self.on_focusout_user)
-        self.input_username.configure(foreground='grey')
+        self.input_username.configure(foreground='grey', font='Helvetica 15')
         self.input_username.get()
 
-        self.input_password = ttk.Entry(self, width=40)
+        self.input_password = ttk.Entry(self, width=35)
         self.input_password.grid(row=2, column=1)
         self.input_password.insert(0, "Password")
         self.input_password.bind("<FocusIn>", self.temp_text_pass)
         self.input_password.bind("<FocusOut>", self.on_focusout_pass)
-        self.input_password.configure(foreground='grey')
+        self.input_password.configure(foreground='grey', font='Helvetica 15')
         self.input_password.get()
-        self.Login = ttk.Button(self, text='LOGIN', command=lambda : set(self), cursor='hand2')
-        self.Login.grid(row=4, column=1)
+
+        style = Style()
+
+        style.configure('W.TButton', font=
+        ('Helvetica', 15, 'bold'),
+                        foreground='black')
+        self.Login = ttk.Button(self, text='LOGIN', command=lambda : set(self), cursor='hand2', style='W.TButton').grid(row=4, column=1)
+        #self.Login['Font'] = self.myFont
+
+
+        self.t = ttk.Label(self, width=10).grid(row=0, columnspan=3)
+        self.t_c = ttk.Label(self, width=10).grid(row=1, column=0)
+        self.b_r = ttk.Label(self, width=10).grid(row=3, columnspan=3)
+        self.columnconfigure(index=0, weight=2)
 
         #self.grid(row=0, column=0)
 
@@ -162,7 +196,7 @@ class Start_Window(ttk.Frame):
             count += 1
             if count == frames:
                 self.gif_label.destroy()
-                login_Window(container).grid(row=0, column=0)
+                login_Window(container).place(anchor=tk.NW)
                 self.destroy()
                 return
             self.gif_label.configure(image=im2)
@@ -216,6 +250,7 @@ if __name__ == "__main__" :
         password = ''
         receiver_email = ''
         body = ""
+        subject=''
         app.mainloop()
     except Exception as ex:
         messagebox.showerror("Error", "No internet connectivity!")
