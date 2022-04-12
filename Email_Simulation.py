@@ -9,7 +9,7 @@ from email.mime.text import MIMEText
 from tkinter import messagebox
 
 
-# yashvi
+
 class menu_window(ttk.Frame):
     def __init__(self, container):
         super().__init__(container)  # to invoke parent constructor
@@ -33,7 +33,7 @@ class menu_window(ttk.Frame):
         self.rowconfigure(0, weight=3)
         self.columnconfigure(0, weight=2)
 
-# yashvi, snehal # same as display draft
+
 class compose_window(ttk.Frame):
     def temp_text_to(self, e):
         self.to.delete(0, "end")
@@ -128,7 +128,7 @@ class compose_window(ttk.Frame):
 
 
 
-# jessica
+
 class login_Window(ttk.Frame):
 
     # to delete default text in username field
@@ -225,7 +225,7 @@ class login_Window(ttk.Frame):
 
 
 
-# bhaktee
+
 class Start_Window(ttk.Frame):
     def __init__(self, container):
         super().__init__(container)  # to invoke parent constructor
