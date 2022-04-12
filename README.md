@@ -11,10 +11,10 @@ Email simulation using python libraries such as smtplib for sending email and tk
 - Keywords :
   - i) smtp = to create server for sending email using smtplib
   - ii) sender_email = email address of sender
-	- iii) password = password of sender_email
-	- iv) receiver_email = email address of receiver
-	- v) body = text body of the email
-	- vi) subject = subject line of email
+  - iii) password = password of sender_email
+  - iv) receiver_email = email address of receiver
+  - v) body = text body of the email
+  - vi) subject = subject line of email
 
 - Abstract :Using Tkinter we created GUI for sending email. When user runs the program first it opens start window which displays GIF of email. After that login window is opened which takes login credentials of the sender. If the credentials given by the user is invalid then a message box is displayed which says that “Login is Unsuccessful”. Logging in into user’s account it displays menu window which has compose option after clicking on compose button, Compose Window is opened which has recipient part, subject line part ,body of email and send button. After the Email is sent , a message box is displayed saying “Email sent Successfully”.
   Internet Connectivity is Essential for the program else it shows a message box saying “No Internet Connectivity”.
